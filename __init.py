@@ -10,12 +10,12 @@ response = requests.get(url)
 # print json
 data = response.json()
 
-print("\nUnformatted values:\n")
+print("\nRaw Values:\n")
 for key, value in data.items():
    print(f"{key}: {value}")
 
 # print selected values
-print("\nFormated Values:\n")
+print("\nSelected Data:\n")
 print(f"IP: {data.get('ip')}")
 print(f"Country: {data.get('country_name')}")
 print(f"Region: {data.get('region_name')}")

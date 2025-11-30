@@ -131,4 +131,4 @@ jobs:
           grep -n "access_key" __init.py || true
 
       - name: Build success
-        run: echo "✅ Build completed successfully!"
+        run: echo "Build completed successfully!"

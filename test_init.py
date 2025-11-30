@@ -1,12 +1,14 @@
 """
 Basic tests for the IP lookup application.
 """
+
 import pytest
 
 
 def test_imports():
     """Test that required modules can be imported."""
     import requests
+
     assert requests is not None
 
 

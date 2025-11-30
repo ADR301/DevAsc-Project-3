@@ -26,3 +26,8 @@ def test_api_url_format():
     url = f"https://api.ipapi.com/api/check?access_key={access_key}"
     assert "https://api.ipapi.com/api/" in url
     assert "access_key=" in url
+
+import unittest
+from unittest.mock import patch, Mock
+import requests
+

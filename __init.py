@@ -18,8 +18,8 @@ else:
     user_input = "no"
     print("Invalid choice.")
 
-if user_input in ['yes', 'y', 'lookup']:
-    if user_input == 'lookup':
+if user_input in ["yes", "y", "lookup"]:
+    if user_input == "lookup":
         url = f"https://api.ipapi.com/api/{ip_address}?access_key={access_key}"
     else:
         url = f"https://api.ipapi.com/api/check?access_key={access_key}"
@@ -47,9 +47,11 @@ if user_input in ['yes', 'y', 'lookup']:
         print(f"Longitude: {data.get('longitude')}")
         print(f"Flag: {data.get('location', {}).get('country_flag_emoji')}")
         print(f"Calling Code: +{data.get('location', {}).get('calling_code')}")
-    
+
     except requests.exceptions.ConnectionError:
-        print("\nError: Unable to connect to the API. Please check your internet connection.")
+        print(
+            "\nError: Unable to connect to the API. Please check your internet connection."
+        )
     except requests.exceptions.Timeout:
         print("\nError: The request timed out. Please try again later.")
     except requests.exceptions.HTTPError as e:

@@ -13,7 +13,7 @@ def test_imports():
 def test_access_key_exists():
     """Test that access key is defined."""
     # Read the file to check for access_key
-    with open("__init.py", "r") as f:
+    with open("__init.py", "r", encoding="utf-8") as f:
         content = f.read()
         assert "access_key" in content
 

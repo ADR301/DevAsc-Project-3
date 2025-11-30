@@ -27,16 +27,16 @@ jobs:
           pip install flake8 pylint black isort
 
       - name: Run flake8
-        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=.venv,venv,env,.git
 
       - name: Run pylint
         run: pylint *.py --exit-zero
 
       - name: Check code formatting with black
-        run: black --check .
+        run: black --check . --exclude '/(\.venv|venv|env|\.git)/'
 
       - name: Check import sorting with isort
-        run: isort --check-only .
+        run: isort --check-only . --skip-venv --skip .venv --skip venv --skip env
 
   security:
     name: Security Scan

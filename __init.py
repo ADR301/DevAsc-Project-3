@@ -3,11 +3,26 @@ import requests
 # api access keys
 access_key = "661dab76849728d753a528454517fc99"
 
-# ask user if they want to see their IP information
-user_input = input("Would you like to see your IP information? (yes/no): ").strip().lower()
+# ask user what they want to do
+print("IP Information Lookup")
+print("1. Check your own IP information")
+print("2. Lookup a specific IP address")
+choice = input("\nEnter your choice (1 or 2): ").strip()
 
-if user_input in ['yes', 'y']:
-    url = f"https://api.ipapi.com/api/check?access_key={access_key}"
+if choice == "1":
+    user_input = "yes"
+elif choice == "2":
+    user_input = "lookup"
+    ip_address = input("Enter the IP address to lookup: ").strip()
+else:
+    user_input = "no"
+    print("Invalid choice.")
+
+if user_input in ['yes', 'y', 'lookup']:
+    if user_input == 'lookup':
+        url = f"https://api.ipapi.com/api/{ip_address}?access_key={access_key}"
+    else:
+        url = f"https://api.ipapi.com/api/check?access_key={access_key}"
 
     try:
         # send request to api
